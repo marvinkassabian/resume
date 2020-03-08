@@ -1,6 +1,6 @@
 \LoadClass{article}
 
-\ProvidesClass{marvinkassabian_resume}[2020/03/07 resume class]
+\ProvidesClass{playground}[2020/03/07 playground class]
 
 \RequirePackage{titlesec}
 \RequirePackage{bold-extra}
