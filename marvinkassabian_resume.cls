@@ -16,7 +16,7 @@
 	SmallCapsFeatures={Letters=SmallCaps},
 ]
 \titlespacing*{\section}
-{0pt}{0pt}{0pt}
+{0pt}{0pt}{3pt}
 \titlespacing*{\subsection}
 {0pt}{0pt}{0pt}
 
@@ -57,21 +57,26 @@
 	}
 	{}{0em}
 	{}
+	
+\newcommand{\timeformat}[1]{
+%	(#1)
+	\textit{#1}
+}
 
 \newcommand{\subsectionlocationdate}[3]{%
-	\subsection[#1]{\textbf{#1} • #2 \hfill (#3)}%
+	\subsection[#1]{\textbf{#1} • #2 \hfill \timeformat{#3}}%
 }
 
 \newcommand{\subsectiondate}[2]{%
-	\subsection[#1]{\textbf{#1} \hfill (#2)}%
+	\subsection[#1]{\textbf{#1} \hfill \timeformat{#2}}%
 }
 
 \newcommand{\subsectionpositiondate}[3]{%
-	\subsection[#1]{\textbf{#1} - \textit{\textbf{#2}} \hfill (#3)}%
+	\subsection[#1]{\textbf{#1} - \textit{\textbf{#2}} \hfill \timeformat{#3}}%
 }
 
 \newcommand{\resumesublistbegin}{
-	\begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt]
+	\begin{itemize}[label=•, topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt]
 }
 
 \newcommand{\resumesublistend}{
