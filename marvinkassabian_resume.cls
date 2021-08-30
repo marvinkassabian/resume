@@ -3,6 +3,8 @@
 \ProvidesClass{marvinkassabian_resume}[2020/03/07 resume class]
 
 \RequirePackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage{tgschola}
 \RequirePackage{bold-extra}
 \RequirePackage{geometry}
 \RequirePackage{titlesec}
@@ -71,6 +73,10 @@
 	\subsection[#1]{\textbf{#1} \seperator #2\hfill\timeformat{#3}}
 }
 
+\newcommand{\subsectiondegreelocationdate}[4]{
+	\subsection[#1]{\textbf{#1} \seperator #2\seperator #3\hfill\timeformat{#4}}
+}
+
 \newcommand{\subsectiondate}[2]{
 	\subsection[#1]{\textbf{#1}\hfill\timeformat{#2}}
 }
@@ -94,6 +100,10 @@
 
 	{#3}\hfill{#7}
 	
+}
+
+\newcommand{\resumeheadersimple}[1]{
+	\hfill{\Large{\textbf{\scshape{#1}}}}\hfill
 }
 
 \newcommand{\educationextra}[4]{
