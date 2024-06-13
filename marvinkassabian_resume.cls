@@ -62,7 +62,7 @@
 	{}
 
 \newcommand{\seperator}{
-	•
+•
 }
 	
 \newcommand{\timeformat}[1]{
@@ -102,8 +102,14 @@
 	
 }
 
-\newcommand{\resumeheadersimple}[1]{
-	\hfill{\Large{\textbf{\scshape{#1}}}}\hfill
+\newcommand{\resumeheadersimple}[3]{
+	\begin{center}
+		{\Large{\textbf{\scshape{#1}}}}
+		
+		{#2}
+
+		{#3}
+	\end{center}
 }
 
 \newcommand{\educationextra}[4]{
