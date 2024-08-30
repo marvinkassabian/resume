@@ -1,23 +1,16 @@
 \LoadClass{article}
 
-\ProvidesClass{marvinkassabian_resume}[2020/03/07 resume class]
+\ProvidesClass{../styles/custom}[2020/03/07 resume class]
 
 \RequirePackage{titlesec}
 \usepackage[T1]{fontenc}
-\usepackage{tgschola}
+\RequirePackage{mathpazo}
 \RequirePackage{bold-extra}
 \RequirePackage{geometry}
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
-\RequirePackage{fontspec}
 \RequirePackage[english]{babel}
 \RequirePackage{changepage}
-
-
-\setmainfont{TEX Gyre Schola}[
-	SmallCapsFont={TEX Gyre Termes},
-	SmallCapsFeatures={Letters=SmallCaps},
-]
 
 \titlespacing*{\section}{0pt}{0pt}{3pt}
 
@@ -62,7 +55,7 @@
 {}
 
 \newcommand{\seperator}{
-	•
+•
 }
 
 \newcommand{\timeformat}[1]{
@@ -70,11 +63,11 @@
 }
 
 \newcommand{\subsectionlocationdate}[3]{
-	\subsection[#1]{\textbf{#1} \seperator #2\hfill\timeformat{#3}}
+	\subsection[#1]{\textbf{#1}\seperator #2\hfill\timeformat{#3}}
 }
 
 \newcommand{\subsectiondegreelocationdate}[4]{
-	\subsection[#1]{\textbf{#1} \seperator #2\seperator #3\hfill\timeformat{#4}}
+	\subsection[#1]{\textbf{#1}\seperator #2\seperator #3\hfill\timeformat{#4}}
 }
 
 \newcommand{\subsectiondate}[2]{
@@ -82,7 +75,7 @@
 }
 
 \newcommand{\subsectionpositiondate}[3]{
-	\subsection[#1]{\textbf{#1} \seperator \textit{\textbf{#2}}\hfill\timeformat{#3}}
+	\subsection[#1]{\textbf{#1}\seperator \textit{\textbf{#2}}\hfill\timeformat{#3}}
 }
 
 \newcommand{\resumesublistbegin}{
@@ -112,11 +105,25 @@
 	\end{center}
 }
 
+
+
+\newcommand{\header}[4]{
+	\begin{center}
+		{\Large{\textbf{\scshape{#1}}}}
+
+		{#2}
+
+		{#3}
+
+		{#4}
+	\end{center}
+}
+
 \newcommand{\educationextra}[4]{
 	\begin{adjustwidth}{1em}{0pt}
-		{#1 \seperator #2}
+		{#1\seperator #2}
 
-		{#3 \seperator #4}
+		{#3\seperator #4}
 	\end{adjustwidth}
 }
 
