@@ -1,5 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../styles/cv}[2023/12/15 CV class]
+
 \LoadClass{../styles/base}
 
 % More spacious A4 paper layout
