@@ -20,11 +20,7 @@
     linkcolor=blue,
     urlcolor=blue,
     citecolor=blue,
-    filecolor=blue,
-    pdftitle={CV},
-    pdfauthor={},
-    pdfsubject={},
-    pdfkeywords={}
+    filecolor=blue
 }
 
 % Common title formatting
@@ -88,11 +84,21 @@
 }
 
 \newcommand{\resumeheader}[7]{
-    {#1}\hfill{#5}
-
-    {#2}\hfill{\Large{\textbf{\scshape{#4}}}}\hfill{#6}
-
-    {#3}\hfill{#7}
+    \noindent
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+        #1 & \href{mailto:#5}{#5} \\  % Address line 1 left, email right
+    \end{tabular*}
+    
+    \noindent
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r@{}}
+        #2 & \smash{\raisebox{0pt}[\height][0pt]{\Large\textbf{\textsc{#4}}}} & \href{https://#6}{#6} \\  % Address line 2 left, title center, website right
+    \end{tabular*}
+    
+    \noindent
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+        \href{tel:#3}{#3} & \href{https://#7}{#7} \\  % Phone left, second website right
+    \end{tabular*}
+    \vspace{0.5em}
 }
 
 \newcommand{\resumeheadersimple}[3]{
@@ -135,4 +141,15 @@
 
 \newcommand{\cpp}{
     C\texttt{++}
+}
+
+\newcommand{\populatedtitle}{
+    \resumeheader
+        {2026 Lafayette Ave NE}
+        {Grand Rapids, MI 49505}
+        {+1 (616) 916-5415}
+        {Marvin Kassabian}
+        {marvin.kassabian@gmail.com}
+        {github.com/marvinkassabian}
+        {linkedin.com/in/marvinkassabian}
 }
