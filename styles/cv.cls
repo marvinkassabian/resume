@@ -35,7 +35,8 @@
                    topsep=4pt, 
                    partopsep=0pt, 
                    itemsep=2pt, 
-                   parsep=2pt]
+                   parsep=2pt,
+                   rightmargin=2em]
 }
 
 % Additional CV-specific commands

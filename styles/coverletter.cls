@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../styles/coverletter}[2020/03/07 coverletter class]
 
-\LoadClass{base}
+\LoadClass{../styles/base}
 
 \DeclareOption{A4}{
     \geometry{
