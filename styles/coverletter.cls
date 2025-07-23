@@ -3,17 +3,17 @@
 
 \LoadClass{../styles/base}
 
-\DeclareOption{A5}{
+\DeclareOption{A4}{
     \geometry{
-        paperheight = 279mm,
-        paperwidth = 216mm,
-        top = 20pt,
-        bottom = 20pt,
-        outer = 30pt,
-        inner = 30pt,
-        footskip = 30pt,
-        headsep = 30pt,
-        headheight = 30pt,
+        a4paper,
+        top=25mm,
+        bottom=25mm,
+        outer=25mm,
+        inner=25mm,
+        footskip=15mm,
+        headsep=15mm,
+        marginparwidth=0pt,
+        marginparsep=0pt
     }
 }
 
