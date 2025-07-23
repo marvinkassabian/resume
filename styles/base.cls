@@ -76,7 +76,7 @@
 }
 
 \newcommand{\resumesublistbegin}{
-    \begin{itemize}[label=\seperator, topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt]
+    \begin{itemize}[label=\seperator, topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt, rightmargin=2em]
 }
 
 \newcommand{\resumesublistend}{
