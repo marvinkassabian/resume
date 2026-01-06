@@ -153,3 +153,14 @@
         {github.com/marvinkassabian}
         {linkedin.com/in/marvinkassabian}
 }
+
+\newcommand{\populatedtitlebirmingham}{
+    \resumeheader
+        {1103 Chapin Ave}
+        {Birmingham, MI 48009}
+        {+1 (616) 916-5415}
+        {Marvin Kassabian}
+        {marvin.kassabian@gmail.com}
+        {github.com/marvinkassabian}
+        {linkedin.com/in/marvinkassabian}
+}
