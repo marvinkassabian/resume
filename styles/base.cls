@@ -143,10 +143,23 @@
     C\texttt{++}
 }
 
-\newcommand{\populatedtitle}{
+\newcommand{\populatedtitlelafayette}{
     \resumeheader
         {2026 Lafayette Ave NE}
         {Grand Rapids, MI 49505}
+        {+1 (616) 916-5415}
+        {Marvin Kassabian}
+        {marvin.kassabian@gmail.com}
+        {github.com/marvinkassabian}
+        {linkedin.com/in/marvinkassabian}
+}
+
+\newcommand{\populatedtitle}{\populatedtitlelafayette}
+
+\newcommand{\populatedtitlechapin}{
+    \resumeheader
+        {1103 Chapin Ave}
+        {Birmingham, MI 48009}
         {+1 (616) 916-5415}
         {Marvin Kassabian}
         {marvin.kassabian@gmail.com}
