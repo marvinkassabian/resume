@@ -143,12 +143,12 @@
     C\texttt{++}
 }
 
-\newcommand{\populatedtitle}{\populatedtitleellie}
+\newcommand{\populatedtitle}{\populatedtitleelizabeth}
 
-\newcommand{\populatedtitleellie}{
+\newcommand{\populatedtitleelizabeth}{
     \resumeheadersimpler
-        {Ellie Valentine}
-        {ellie.g.valentine@proton.me}
-        {+1 (734) 660-7061}
-        {\href{https://github.com/p0rtL6}{github.com/p0rtL6}}
+        {Elizabeth A. Perera}
+        {eaperera@alumni.depaul.edu}
+        {(248) 792-1328}
+        {Laurel, MD 20708}
 }
