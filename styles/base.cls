@@ -143,26 +143,12 @@
     C\texttt{++}
 }
 
-\newcommand{\populatedtitlelafayette}{
-    \resumeheader
-        {2026 Lafayette Ave NE}
-        {Grand Rapids, MI 49505}
-        {+1 (616) 916-5415}
-        {Marvin Kassabian}
-        {marvin.kassabian@gmail.com}
-        {github.com/marvinkassabian}
-        {linkedin.com/in/marvinkassabian}
-}
+\newcommand{\populatedtitle}{\populatedtitleellie}
 
-\newcommand{\populatedtitle}{\populatedtitlelafayette}
-
-\newcommand{\populatedtitlechapin}{
-    \resumeheader
-        {1103 Chapin Ave}
-        {Birmingham, MI 48009}
-        {+1 (616) 916-5415}
-        {Marvin Kassabian}
-        {marvin.kassabian@gmail.com}
-        {github.com/marvinkassabian}
-        {linkedin.com/in/marvinkassabian}
+\newcommand{\populatedtitleellie}{
+    \resumeheadersimpler
+        {Ellie Valentine}
+        {ellie.g.valentine@proton.me}
+        {+1 (734) 660-7061}
+        {\href{https://github.com/p0rtL6}{github.com/p0rtL6}}
 }
