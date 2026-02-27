@@ -1,3 +1,27 @@
 {
-  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build/",
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%\\build\\",
+  "latex-workshop.latex.auxDir": "%WORKSPACE_FOLDER%\\build\\aux",
+  "latex-workshop.latex.autoClean.run": "never",
+  "latex-workshop.latex.clean.enabled": false,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex",
+      "tools": ["pdflatex"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "C:\\Program Files\\MiKTeX\\miktex\\bin\\x64\\pdflatex.exe",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ]
 }

@@ -101,13 +101,11 @@
     \vspace{0.5em}
 }
 
-\newcommand{\resumeheadersimple}[3]{
+\newcommand{\resumeheadersimple}[4]{
     \begin{center}
         {\Large{\textbf{\scshape{#1}}}}
 
-        {#2}
-
-        {#3}
+        {\href{mailto:#2}{#2}\seperator \href{tel:#3}{#3}\seperator #4}
     \end{center}
 }
 
@@ -143,26 +141,10 @@
     C\texttt{++}
 }
 
-\newcommand{\populatedtitlelafayette}{
-    \resumeheader
-        {2026 Lafayette Ave NE}
-        {Grand Rapids, MI 49505}
-        {+1 (616) 916-5415}
-        {Marvin Kassabian}
-        {marvin.kassabian@gmail.com}
-        {github.com/marvinkassabian}
-        {linkedin.com/in/marvinkassabian}
-}
-
-\newcommand{\populatedtitle}{\populatedtitlelafayette}
-
-\newcommand{\populatedtitlechapin}{
-    \resumeheader
-        {1103 Chapin Ave}
-        {Birmingham, MI 48009}
-        {+1 (616) 916-5415}
-        {Marvin Kassabian}
-        {marvin.kassabian@gmail.com}
-        {github.com/marvinkassabian}
-        {linkedin.com/in/marvinkassabian}
+\newcommand{\populatedtitle}{
+    \resumeheadersimple
+        {Zoey Drapal}
+        {zoey.drapal@example.com}
+        {(555) 123-4567}
+        {City, State}
 }

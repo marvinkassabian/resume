@@ -282,3 +282,6 @@ TSWLatexianTemp*
 
 # VS Code Copilot context folder
 .context
+
+# VS Code settings and workspace configuration
+.vscode
