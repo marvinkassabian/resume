@@ -144,7 +144,7 @@
 \newcommand{\populatedtitle}{
     \resumeheadersimple
         {Zoey Drapal}
-        {zoey.drapal@example.com}
-        {(555) 123-4567}
-        {City, State}
+        {zoeydrapal@gmail.com}
+        {631-560-2684}
+        {Grand Rapids, MI}
 }
