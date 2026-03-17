@@ -2,8 +2,6 @@ name: Build LaTeX
 
 on:
   push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       strict_sections:
@@ -16,7 +14,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 concurrency:
-  group: build-latex
+  group: build-latex-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
