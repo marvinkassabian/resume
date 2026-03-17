@@ -42,22 +42,57 @@ jobs:
       generate_release_notes: true
       enable_version_validation: true
 
-  publish-pages:
+  build-pages-site:
     if: ${{ needs.release.result == 'success' || (github.event_name == 'workflow_dispatch' && inputs.release_assets_only == true) }}
     needs: release
+    runs-on: ubuntu-latest
     permissions:
       contents: read
+
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref }}
+
+      - name: Set Up GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Download PDF Artifacts
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.release_assets_only == true) }}
+        uses: actions/download-artifact@v4
+        with:
+          name: kassabian-resume-pdfs
+          path: build
+
+      - name: Download Release PDF Assets
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.release_assets_only == true }}
+        uses: marvinkassabian/latex-document-ops/.github/actions/download-release-pdfs@main
+        with:
+          release_tag: ${{ inputs.release_tag }}
+          repository: ${{ github.repository }}
+
+      - name: Build GitHub Pages Site
+        uses: marvinkassabian/latex-document-ops/.github/actions/build-pages-site@main
+        with:
+          artifact_path: build/
+          page_title: "Kassabian Resume"
+          page_description: "Generated from the latest release."
+
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+  deploy-github-pages:
+    needs: build-pages-site
+    runs-on: ubuntu-latest
+    permissions:
       pages: write
       id-token: write
-    uses: marvinkassabian/latex-document-ops/.github/workflows/publish-pages.yml@main
-    with:
-      source_repository: ${{ github.repository }}
-      source_ref: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref }}
-      build_command: make build
-      artifact_path: build/
-      artifact_name: kassabian-resume-pdfs
-      strict_build: ${{ github.event_name == 'push' || inputs.strict_sections }}
-      clean_command: make clean-aux
-      page_title: "Kassabian Resume"
-      page_description: "Generated from the latest release."
 
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
