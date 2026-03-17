@@ -1,0 +1,60 @@
+name: Release LaTeX
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Tag name for release (for example v1.2.3)"
+        required: true
+        type: string
+      strict_sections:
+        description: "Fail workflow if standalone section/frontmatter PDFs fail"
+        required: false
+        default: true
+        type: boolean
+      release_assets_only:
+        description: "Upload enabled cloud targets from an existing GitHub release only (skip build/release)"
+        required: false
+        default: false
+        type: boolean
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    uses: marvinkassabian/latex-document-ops/.github/workflows/release.yml@main
+    with:
+      source_repository: ${{ github.repository }}
+      source_ref: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref }}
+      release_tag: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }}
+      build_command: make full
+      artifact_path: build/
+      artifact_name: wmcc-training-manual-pdfs
+      strict_build: ${{ github.event_name == 'push' || inputs.strict_sections }}
+      clean_command: make clean-aux
+      enable_github_release: ${{ github.event_name == 'push' || inputs.release_assets_only != true }}
+      generate_release_notes: true
+      enable_version_validation: true
+
+  upload-mega-io:
+    if: ${{ vars.ENABLE_MEGA_IO_UPLOAD == 'true' && (needs.release.result == 'success' || (github.event_name == 'workflow_dispatch' && inputs.release_assets_only == true)) }}
+    needs: release
+    uses: marvinkassabian/latex-document-ops/.github/workflows/upload-mega-io.yml@main
+    with:
+      source_repository: ${{ github.repository }}
+      source_ref: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref }}
+      release_tag: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }}
+      source: ${{ github.event_name == 'workflow_dispatch' && inputs.release_assets_only == true && 'release' || 'artifact' }}
+      artifact_name: wmcc-training-manual-pdfs
+      target_path: ${{ vars.MEGA_IO_PATH || 'WMCC-Training-Manual' }}
+      sections_dir: src/sections
+      frontmatter_dir: src/frontmatter
+    secrets:
+      mega_io_username: ${{ secrets.MEGA_IO_USERNAME }}
+      mega_io_password: ${{ secrets.MEGA_IO_PASSWORD }}

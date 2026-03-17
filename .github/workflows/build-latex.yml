@@ -1,0 +1,34 @@
+name: Build LaTeX
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      strict_sections:
+        description: "Fail workflow if standalone section/frontmatter PDFs fail"
+        required: false
+        default: false
+        type: boolean
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+concurrency:
+  group: build-latex
+  cancel-in-progress: true
+
+jobs:
+  build-latex:
+    permissions:
+      contents: read
+    uses: marvinkassabian/latex-document-ops/.github/workflows/build.yml@main
+    with:
+      source_repository: ${{ github.repository }}
+      source_ref: ${{ github.sha }}
+      build_command: make full
+      artifact_path: build/
+      artifact_name: wmcc-training-manual-pdfs
+      strict_build: ${{ github.event_name == 'push' || inputs.strict_sections }}
+      clean_command: make clean-aux

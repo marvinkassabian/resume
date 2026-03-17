@@ -4,6 +4,9 @@
 
 \populatedtitle
 
+\section{Summary}
+    Senior Software Engineer with 12+ years delivering enterprise-scale and point-of-sale applications across desktop, mobile, and web platforms. Proven track record building production-ready .NET/C\#, JavaScript/TypeScript, and REST API solutions, modernizing legacy systems, and implementing secure integrations. Experienced shipping scalable software in Agile environments with comprehensive testing, CI/CD pipelines, and cross-functional delivery from design through deployment.
+
 \section{Education}
 \subsectionpositiondate
     {Michigan Technological University}
@@ -21,11 +24,14 @@
 
 \section{Skills}
 \resumesublistbegin
-    \item \textbf{Programming Languages:} Python (pandas, NumPy, scikit-learn, TensorFlow), R, SQL, Go, Java, \cpp, C\#, TypeScript
+    \item \textbf{Programming Languages:} C\#, \cpp, Python (pandas, NumPy, scikit-learn, TensorFlow), R, SQL, Go, Java, TypeScript, JavaScript
+    \item \textbf{Software Development:} Object-Oriented Design, Legacy System Enhancement, Real-Time Applications, Automated Testing, TDD, REST API Design, Secure Integrations
     \item \textbf{Data Science \& ML:} Predictive modeling, clustering (K-means), classification, statistical analysis, data visualization (Matplotlib, Seaborn), feature engineering, model evaluation (ROC, precision-recall)
     \item \textbf{Data Processing:} ETL pipelines, data cleaning/wrangling, data migration
     \item \textbf{Databases:} PostgreSQL, T-SQL, MongoDB, Firebase, database design/optimization
-    \item \textbf{Frameworks and Libraries:} Next.js, Vue.js, Angular, React
+    \item \textbf{Frameworks and Libraries:} Next.js, Vue.js, Angular, React, Inertia.js, Tailwind, Laravel, ASP.NET Core
+    \item \textbf{Cloud Platforms:} AWS (SQS/EventBridge), GCP, Firebase
+    \item \textbf{Infrastructure \& DevOps:} Docker, Kubernetes, CI/CD Pipelines, Git, GitHub Actions, Azure DevOps, GitLab CI/CD, OpenTelemetry
     \item \textbf{Languages:} Fluent English, Conversational Thai
 \resumesublistend
 
@@ -34,13 +40,26 @@
 \subsectionpositiondate
     {Superior Technologies Research}
     {Senior Software Contractor}
-    {May 2025 - December 2025}
+    {May 2025 - February 2026}
 \resumesublistbegin
-    \item Contracted to architect and deliver MVP for enterprise-scale HR performance-tracking platform from inception to go-live, building full-stack application with Vue.js 3/TypeScript frontend and Go backend.
+    \resumesubgroup{Client: HR Performance Platform}
+    \resumenestedlistbegin
+    \item Delivered features and coordinated work within a SAFe (Scaled Agile Framework) environment, participating in PI planning and aligning team execution to program-level milestones.
+    \item Architected and delivered enterprise-scale HR performance-tracking platform from inception to production deployment, following agile development practices and milestone-driven project planning to meet critical delivery dates.
+    \item Developed well-structured, thoroughly documented software using Vue.js 3/TypeScript frontend and Go RESTful API backend with comprehensive technical specifications and operational documentation.
     \item Built enterprise-scale TypeScript application using Vuetify 3, implementing features including assessment templates, ROI tracking, vision management, and advanced reporting with Excel export capabilities.
     \item Architected Go-based microservice with SQL Server and Aerospike caching, achieving high performance through connection pooling and hierarchical data structure optimization.
-    \item Implemented comprehensive test suite with 100+ test functions following TDD principles, ensuring code reliability and maintainability across full-stack development.
-    \item Deployed containerized application using Docker and Kubernetes with GitLab CI/CD pipelines, managing multi-environment deployments with OpenTelemetry observability for distributed tracing.
+    \item Implemented comprehensive automated test suite achieving full route coverage across all application domains, following TDD principles with unit, integration, and system test procedures to ensure code reliability.
+    \item Deployed containerized microservices via Docker and Kubernetes with GitLab CI/CD pipelines, OpenTelemetry observability, and health monitoring for production environments.
+    \resumenestedlistend
+    \resumesubgroup{Client: Laravel Platform Modernization}
+    \resumenestedlistbegin
+    \item Extended and maintained a Laravel-based platform for a separate client, leading a frontend migration from Bootstrap and Blade to Inertia.js, Vue.js, and Tailwind while delivering feature work across the full stack.
+    \item Replaced a pattern of testing against a shared dev database with an isolated schema-only database instance, enabling reliable, replayable integration and unit tests across complex business logic without side effects or environment dependencies.
+    \item Led source control and project management migration from GitHub to Azure DevOps, including repository transfer, team onboarding, and process alignment; introduced stakeholders to GitHub Issues for task tracking before transitioning them to Azure DevOps Boards.
+    \item Authored CI/CD deployment pipelines in GitHub Actions, then ported them to Azure DevOps Pipelines, enforcing branch policies that required automated tests to pass before pull requests could merge into main, publishing test coverage analytics for release visibility, and automating a secure third-party development integration workflow with rotating API keys.
+    \item Modernized platform security by replacing a custom level 1--5 permission model with a claims-based access control (CBAC) system, initially centered on role claims, establishing a durable authorization foundation for internal users, external integrations, and future access-control expansion.
+    \resumenestedlistend
 \resumesublistend
 
 \subsectionpositiondate
@@ -48,11 +67,12 @@
     {Part-Time Software Developer}
     {July 2024 - August 2025}
 \resumesublistbegin
+    \item Developed a dynamic school platform using Next.js and Payload CMS with Firebase (GCP) for user authentication, classroom management, and sign-up workflows, enabling teachers to create, reuse, and manage curriculum modules through a custom admin interface.
     \item Developed responsive, accessible frontend features using React (Next.js) with TypeScript, collaborating closely with Product Managers and designers to translate requirements into well-structured, maintainable code.
-    \item Built e-commerce platform for yacht sales with Next.js frontend integrated with ASP.NET Core backend, implementing product browsing, search functionality, and seamless user experiences.
-    \item Developed educational platform frontend using Next.js, enabling teachers to create, schedule, and publish lessons with integrated questions, utilizing PayloadCMS and Firebase.
+    \item Built a yacht sales e-commerce platform from the ground up in Next.js (TypeScript), replacing the client's legacy site and integrating with a complex dealership and employee hierarchy system via a custom ASP.NET Core (C\#) backend.
     \item Built robust component tests and implemented accessibility standards to ensure reliable, inclusive user experiences across desktop and mobile devices.
     \item Integrated RESTful APIs and Firebase for real-time data management, participating in code reviews and advocating for clean coding practices.
+    \item Provided on-call production support for multiple customers, responding to Zendesk tickets with rapid turnaround to maintain continuous system uptime and meet SLA expectations.
 \resumesublistend
 
 \subsectionpositiondate
@@ -72,16 +92,18 @@
     {Senior Software Contractor}
     {September 2021 - March 2024}
 \resumesublistbegin
-    \item Decomposed legacy PHP and ASP.NET monolith codebase into domain-specific Go services with a Vue.js frontend.
-    \item Utilized Ginkgo and Gomega to ensure that transitioning from a monolith to domain-specific services maintained feature parity, adhering to Test-Driven Development (TDD) principles.
-    \item Created a Go-based API to streamline accounts payable integration between Medius and Microsoft Dynamics GP, utilizing calls to the Medius API to retrieve necessary data.
+    \item Operated within a SAFe (Scaled Agile Framework) environment, participating in PI planning and contributing to program-level delivery across distributed teams.
+    \item Architected and developed microservices decomposing legacy systems into maintainable, domain-specific services with Vue.js frontend and Go RESTful APIs following clean architecture principles and comprehensive documentation standards.
+    \item Built RESTful APIs for system integrations, including accounts payable workflows between Medius and Microsoft Dynamics GP.
+    \item Utilized Ginkgo and Gomega testing frameworks following Test-Driven Development (TDD) principles to ensure feature parity during migration with comprehensive automated test coverage.
     \item Created technical documentation and provided hands-on support to teams for tagged deployment process changes, including tutorials on the new deployment method.
     \item Refactored repositories to adhere to domain-driven design (DDD).
-    \item Contributed to a Go library aimed at standardizing service creation, enhancing DevOps capabilities for service management.
+    \item Contributed to internal Go libraries and created technical documentation including design specifications and operational procedures to standardize service creation and deployment practices.
     \item Rewrote Node.js services in Go for improved maintainability.
     \item Updated legacy codebase for multi-currency support and enhanced data security.
     \item Developed a robust expense processing integration that transforms Expensify data into consumable models.
     \item Converted legacy T-SQL stored procedures to maintainable Go code.
+    \item Designed and implemented an AWS-based event bus (SQS/EventBridge) to enable communication and integration between distributed systems across the organization.
 \resumesublistend
 
 \subsectionpositiondate
@@ -89,11 +111,12 @@
     {Software Developer}
     {August 2016 - September 2021}
 \resumesublistbegin
+    \item Developed and maintained cross-platform point-of-sale applications using C\# for desktop and Xamarin.iOS for mobile, supporting beverage distributors and their retail customers, including Meijer, grocery stores, and liquor stores, with production-ready sales and delivery workflows.
     \item Developed and maintained cross-platform mobile applications using Xamarin.iOS with C\# for iOS devices, implementing native integrations and debugging complex platform-specific issues.
     \item Deployed TensorFlow-based machine learning models on iOS devices for intelligent order suggestions and voice assistant features, optimizing performance for mobile environments.
     \item Performed K-means clustering analysis with scikit-learn to identify customer segments and purchasing patterns, providing actionable insights for marketing and inventory strategies.
     \item Trained and evaluated a classifier for predicting purchasing behavior using scikit-learn and custom data processing, optimizing model performance through precision-recall analysis and ROC curve visualization.
-    \item Built RESTful APIs in ASP.NET Core for third-party integrations and government systems, collaborating with cross-functional teams to deliver scalable solutions.
+    \item Built RESTful APIs in ASP.NET Core (C\#) for third-party integrations and government systems, collaborating with cross-functional teams in agile environment to deliver scalable, well-documented solutions.
     \item Enabled tax data uploads through integration with the Zambia Revenue Authority and designed backend systems for Zambian integration in ASP.NET Core.
     \item Collaborated with a third-party team to resolve data ingestion issues by assisting their developers with Ruby code.
 \resumesublistend
