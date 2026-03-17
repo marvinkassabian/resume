@@ -52,9 +52,10 @@ Workflow:
 - Treat the CV as the authoritative pool of facts you may use to strengthen the resume.
 
 4. Score the current resume before editing.
-- Assign a pre-edit match score from 1 to 10 based on alignment with the job posting.
+- Have a fresh agent (one specialized in hiring for the target company/role) review the resume as an **advocate for the hiring company**.
+- Assign a pre-edit match score from 1 to 10 from the company's perspective: How well does this candidate appear to fit the role and team based on the resume?
 - Base the score on concrete evidence in the current resume, not on assumptions.
-- Identify the main reasons the score is not higher.
+- Identify the main reasons the score is not higher (missing signals, weak alignment, unclear fit).
 
 5. Update the resume.
 - Edit `src/kassabian_marvin_resume.tex` in place.
@@ -72,8 +73,9 @@ Workflow:
 - Keep the resume appropriate for a one-page to short resume style unless the existing file clearly uses a different standard.
 
 7. Re-score after editing.
-- Estimate the updated match score from 1 to 10 after the resume changes.
-- Briefly explain what improved the score.
+- Have the same fresh agent (company advocate) re-evaluate the updated resume.
+- Assign an updated match score from 1 to 10 after the resume changes.
+- Briefly explain what improved the score in the hiring company's eyes.
 
 8. Report remaining gaps.
 - List the most important missing qualifications, experiences, or signals that still prevent a higher score.
