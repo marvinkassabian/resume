@@ -33,28 +33,31 @@ jobs:
       source_repository: ${{ github.repository }}
       source_ref: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref }}
       release_tag: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }}
-      build_command: make full
+      build_command: make build
       artifact_path: build/
-      artifact_name: wmcc-training-manual-pdfs
+      artifact_name: kassabian-resume-pdfs
       strict_build: ${{ github.event_name == 'push' || inputs.strict_sections }}
       clean_command: make clean-aux
       enable_github_release: ${{ github.event_name == 'push' || inputs.release_assets_only != true }}
       generate_release_notes: true
       enable_version_validation: true
 
-  upload-mega-io:
-    if: ${{ vars.ENABLE_MEGA_IO_UPLOAD == 'true' && (needs.release.result == 'success' || (github.event_name == 'workflow_dispatch' && inputs.release_assets_only == true)) }}
+  publish-pages:
+    if: ${{ needs.release.result == 'success' || (github.event_name == 'workflow_dispatch' && inputs.release_assets_only == true) }}
     needs: release
-    uses: marvinkassabian/latex-document-ops/.github/workflows/upload-mega-io.yml@main
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: marvinkassabian/latex-document-ops/.github/workflows/publish-pages.yml@main
     with:
       source_repository: ${{ github.repository }}
       source_ref: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref }}
-      release_tag: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }}
-      source: ${{ github.event_name == 'workflow_dispatch' && inputs.release_assets_only == true && 'release' || 'artifact' }}
-      artifact_name: wmcc-training-manual-pdfs
-      target_path: ${{ vars.MEGA_IO_PATH || 'WMCC-Training-Manual' }}
-      sections_dir: src/sections
-      frontmatter_dir: src/frontmatter
-    secrets:
-      mega_io_username: ${{ secrets.MEGA_IO_USERNAME }}
-      mega_io_password: ${{ secrets.MEGA_IO_PASSWORD }}
+      build_command: make build
+      artifact_path: build/
+      artifact_name: kassabian-resume-pdfs
+      strict_build: ${{ github.event_name == 'push' || inputs.strict_sections }}
+      clean_command: make clean-aux
+      page_title: "Kassabian Resume"
+      page_description: "Generated from the latest release."
+
