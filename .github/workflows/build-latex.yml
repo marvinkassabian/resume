@@ -2,6 +2,11 @@ name: Build LaTeX
 
 on:
   push:
+    paths:
+      - src/**
+      - styles/**
+      - Makefile
+      - .github/workflows/build-latex.yml
   workflow_dispatch:
     inputs:
       strict_sections:
