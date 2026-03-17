@@ -1,5 +1,5 @@
 ---
-description: "Prepare and cut a release by inferring the next version from the latest tag and diff, confirming it with the user, then updating changelog/version metadata, committing, tagging, and pushing"
+description: "Prepare and cut a release by inferring the next version from tags and diff, confirming it, then updating release files, committing, tagging, and pushing"
 name: "cut-release"
 argument-hint: "Optional: release version and date, for example: 0.3.1 03/11/2026"
 tools:
@@ -14,13 +14,12 @@ Arguments:
 - Preferred input is `<VERSION> <DATE>`.
 - Example: `0.3.1 03/11/2026`
 - If the user provides only a version, infer the release date from today.
-- If the user does not provide a version, infer the most likely next version from the latest SemVer tag and the commits/diff since that tag, then ask the user to confirm before making edits.
+- If the user does not provide a version, infer the most likely next version from the latest SemVer tag and the commits and diff since that tag, then ask the user to confirm before making edits.
 - Do not edit files, commit, tag, or push until the version is explicitly confirmed by the user.
 
 Primary files:
 - [CHANGELOG.md](../../CHANGELOG.md)
 - [VERSION](../../VERSION)
-- [src/metadata.tex](../../src/metadata.tex)
 - [commit-messages.instructions.md](../instructions/commit-messages.instructions.md)
 
 Workflow:
@@ -34,27 +33,26 @@ Workflow:
 - If the user already supplied a version, use it.
 - Otherwise, inspect commits and the diff from the latest SemVer tag to `HEAD`.
 - Make a best-effort SemVer recommendation based on user-visible changes:
-   - Patch for fixes only with no meaningful surface-area change.
-   - Minor for backward-compatible additions or meaningful feature expansion.
-   - Major for breaking changes to outputs, interfaces, documented workflows, or release artifacts.
+  - Patch for fixes only with no meaningful surface-area change.
+  - Minor for backward-compatible additions or meaningful feature expansion.
+  - Major for breaking changes to outputs, interfaces, documented workflows, or release artifacts.
 - In `0.x` releases, treat breaking changes as a minor bump unless the user clearly wants to declare `1.0.0` stability.
 - Present the guessed version and a short justification, then stop and ask the user to confirm or override it.
-- After the user confirms, confirm the new tag `v<VERSION>` does not already exist.
+- After the user confirms, verify the new tag `v<VERSION>` does not already exist.
 
 3. Build the release summary from the actual delta.
 - Review changes from the latest tag to `HEAD` using git history and diff tools.
-- Draft a changelog entry based on the real user-visible changes, not just commit subjects.
+- Draft a changelog entry based on real user-visible changes, not just commit subjects.
 - Focus on Added, Changed, and Fixed items when they are supported by the diff.
 
 4. Update release files.
 - Update [CHANGELOG.md](../../CHANGELOG.md) with a new version section using the provided release date.
 - Update [VERSION](../../VERSION) to `<VERSION>`.
-- Update `\wmccManualVersion` indirectly by changing [VERSION](../../VERSION), and update `\wmccManualDate` in [src/metadata.tex](../../src/metadata.tex) to the provided date.
 - Preserve existing formatting and file structure.
 
 5. Verify before release.
 - Review the edited diff.
-- Run the strict release build for this repo.
+- Run the strict release build for this repo using `make build CLEAN_AUX=1`.
 - If the build fails, stop and report the failure instead of tagging.
 
 6. Commit, tag, and push.
