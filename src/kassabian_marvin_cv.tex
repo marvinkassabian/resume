@@ -165,6 +165,10 @@
 \resumesublistbegin
     \item Provide preventative care and safety support at community events.
     \item Co-authored consent-based care training manual and facilitate sessions for 20+ participants.
+    \item Engineered and maintained the WMCC training manual as a production LaTeX codebase: split student and trainer entrypoints, reorganized source into modular frontmatter/section files, and implemented reusable class-level macros for consistent diagrams and formatting.
+    \item Implemented robust local build automation with Makefile targets for full builds and standalone section/frontmatter PDFs, including strict failure controls and repository-wide artifact cleanup for reliable contributor workflows.
+    \item Built and maintained CI/CD caller workflows in the manual repository for build, release, and Conventional Commit validation, including SemVer tag/version checks, artifact publishing, and optional release-assets-only runs.
+    \item Developed shared pipeline support in a separate \texttt{latex-document-ops} repository by creating reusable GitHub Actions workflows and composite actions for LaTeX builds, release publishing, commit policy enforcement, and cloud distribution to Mega.io and Proton Drive via validated Rclone automation.
 \resumesublistend
 
 \subsectionpositiondate
