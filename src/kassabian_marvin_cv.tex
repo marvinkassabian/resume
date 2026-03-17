@@ -51,14 +51,20 @@
     \item Architected Go-based microservice with SQL Server and Aerospike caching, achieving high performance through connection pooling and hierarchical data structure optimization.
     \item Implemented comprehensive automated test suite achieving full route coverage across all application domains, following TDD principles with unit, integration, and system test procedures to ensure code reliability.
     \item Deployed containerized microservices via Docker and Kubernetes with GitLab CI/CD pipelines, OpenTelemetry observability, and health monitoring for production environments.
+    \item Defined service-level objectives (SLOs) for production availability and response time, establishing quarterly downtime-reduction targets and tracking progress against health metrics from OpenTelemetry dashboards; adjusted alerting thresholds to reduce mean time to detection as a practice aligned with SRE principles.
     \resumenestedlistend
-    \resumesubgroup{Client: Laravel Platform Modernization}
+    \resumesubgroup{Client: Laravel Platform Modernization \& Team Leadership}
     \resumenestedlistbegin
-    \item Extended and maintained a Laravel-based platform for a separate client, leading a frontend migration from Bootstrap and Blade to Inertia.js, Vue.js, and Tailwind while delivering feature work across the full stack.
-    \item Replaced a pattern of testing against a shared dev database with an isolated schema-only database instance, enabling reliable, replayable integration and unit tests across complex business logic without side effects or environment dependencies.
+    \item Served as lead full-stack developer responsible for modernizing team practices and codebase standards; applied collaborative leadership by discussing trade-offs, addressing genuine team feedback, and building consensus on architectural decisions.
+    \item Spearheaded a large-scale security initiative: designed and led implementation of a critical security patch across all organizational projects, coordinating with multiple team leads. Conducted pair programming sessions, mentored developers on security-hardened coding conventions (proper separation of concerns: controller/service/repository layers), and established automated test coverage metrics to validate implementation completeness.
+    \item Architected migration from custom role-based access control (RBAC) to claims-based access control (CBAC) by articulating the business and technical case: explained looming permission complexity, audit hardening requirements, and future-proofing benefits despite higher upfront implementation cost, persuading stakeholders to invest in the more robust foundation.
+    \item Extended and maintained Laravel platform, leading a frontend migration from Bootstrap and Blade to Inertia.js, Vue.js, and Tailwind while delivering feature work across the full stack.
+    \item Established continuous integration discipline through multiple XP practices: replaced shared dev database testing with deterministic, isolated schema-only instances for reliable unit and integration tests; enforced branch policies requiring automated test passage before merge; published test coverage analytics to track logical flow coverage percentage and celebrate improvements.
     \item Led source control and project management migration from GitHub to Azure DevOps, including repository transfer, team onboarding, and process alignment; introduced stakeholders to GitHub Issues for task tracking before transitioning them to Azure DevOps Boards.
     \item Authored CI/CD deployment pipelines in GitHub Actions, then ported them to Azure DevOps Pipelines, enforcing branch policies that required automated tests to pass before pull requests could merge into main, publishing test coverage analytics for release visibility, and automating a secure third-party development integration workflow with rotating API keys.
-    \item Modernized platform security by replacing a custom level 1--5 permission model with a claims-based access control (CBAC) system, initially centered on role claims, establishing a durable authorization foundation for internal users, external integrations, and future access-control expansion.
+    \item Implemented SonarQube quality gate analysis into the CI/CD pipeline, enforcing code coverage thresholds and blocking merges on critical code smells, establishing measurable code quality standards across the codebase.
+    \item Integrated a GenAI-powered voice agent to handle inbound customer retention calls, enabling automated offer presentation and conversational flow via an LLM-backed voice interface.
+    \item Built a video-to-knowledge pipeline using OpenAI Whisper for speech-to-text transcription and Hugging Face models for domain-specific summarization, converting legacy field-training videos into navigable Markdown documents with hyperlinks to timestamped source video segments for easy corroboration.
     \resumenestedlistend
 \resumesublistend
 
@@ -104,6 +110,7 @@
     \item Developed a robust expense processing integration that transforms Expensify data into consumable models.
     \item Converted legacy T-SQL stored procedures to maintainable Go code.
     \item Designed and implemented an AWS-based event bus (SQS/EventBridge) to enable communication and integration between distributed systems across the organization.
+    \item Used SonarQube for continuous code quality analysis, maintaining clean code standards and addressing technical debt as part of the team's quality engineering practices.
 \resumesublistend
 
 \subsectionpositiondate
