@@ -48,7 +48,7 @@
 
 % Common commands
 \newcommand{\seperator}{
-    •
+    \textbullet
 }
 
 \newcommand{\titleseperator}{
@@ -81,6 +81,18 @@
 
 \newcommand{\resumesublistend}{
     \end{itemize}
+}
+
+\newcommand{\resumenestedlistbegin}{
+    \begin{itemize}[label=\seperator, topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt, leftmargin=1.75em, rightmargin=1em]
+}
+
+\newcommand{\resumenestedlistend}{
+    \end{itemize}
+}
+
+\newcommand{\resumesubgroup}[1]{
+    \item \textbf{#1}
 }
 
 \newcommand{\resumeheader}[7]{

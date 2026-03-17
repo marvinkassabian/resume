@@ -19,7 +19,11 @@
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-# *.pdf
+*.pdf
+
+# Local/editor and generated output folders
+.vscode/
+build/
 
 ## Generated if empty string is given at "Please type another file name for output:"
 .pdf
@@ -282,3 +286,10 @@ TSWLatexianTemp*
 
 # VS Code Copilot context folder
 .context
+
+# VS Code workspace settings
+.vscode/
+
+# Local LaTeX build output (keep only documentation file tracked)
+build/*
+!build/README.md
