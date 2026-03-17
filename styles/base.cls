@@ -166,8 +166,6 @@
         {linkedin.com/in/marvinkassabian}
 }
 
-\newcommand{\populatedtitle}{\populatedtitlelafayette}
-
 \newcommand{\populatedtitlechapin}{
     \resumeheader
         {1103 Chapin Ave}
@@ -178,3 +176,5 @@
         {github.com/marvinkassabian}
         {linkedin.com/in/marvinkassabian}
 }
+
+\newcommand{\populatedtitle}{\populatedtitlechapin}
