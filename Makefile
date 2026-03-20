@@ -14,33 +14,34 @@ RESUME = kassabian_marvin_resume
 CV = kassabian_marvin_cv
 COVERLETTER = kassabian_marvin_coverletter
 
+TEX_SOURCES := $(shell find $(SRC_DIR) -type f -name '*.tex')
+PDF_TARGETS := $(patsubst %.tex,$(BUILD_DIR)/%.pdf,$(TEX_SOURCES))
+
+RESUME_PDF = $(BUILD_DIR)/$(SRC_DIR)/$(RESUME).pdf
+CV_PDF = $(BUILD_DIR)/$(SRC_DIR)/$(CV).pdf
+COVERLETTER_PDF = $(BUILD_DIR)/$(SRC_DIR)/$(COVERLETTER).pdf
+
 all: build
 
-build:
+build: $(PDF_TARGETS)
 >@echo "Building resume, CV, and cover letter..."
->@mkdir -p $(BUILD_DIR)
->$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(BUILD_DIR) $(SRC_DIR)/$(RESUME).tex
->$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(BUILD_DIR) $(SRC_DIR)/$(CV).tex
->$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(BUILD_DIR) $(SRC_DIR)/$(COVERLETTER).tex
->@echo "Built: $(BUILD_DIR)/$(RESUME).pdf"
->@echo "Built: $(BUILD_DIR)/$(CV).pdf"
->@echo "Built: $(BUILD_DIR)/$(COVERLETTER).pdf"
+>@echo "Built: $(RESUME_PDF)"
+>@echo "Built: $(CV_PDF)"
+>@echo "Built: $(COVERLETTER_PDF)"
 >@if [ "$(CLEAN_AUX)" = "1" ]; then $(MAKE) clean-aux; fi
 
-build-resume:
+build-resume: $(RESUME_PDF)
 >@echo "Building resume..."
->@mkdir -p $(BUILD_DIR)
->$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(BUILD_DIR) $(SRC_DIR)/$(RESUME).tex
 
-build-cv:
+build-cv: $(CV_PDF)
 >@echo "Building CV..."
->@mkdir -p $(BUILD_DIR)
->$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(BUILD_DIR) $(SRC_DIR)/$(CV).tex
 
-build-coverletter:
+build-coverletter: $(COVERLETTER_PDF)
 >@echo "Building cover letter..."
->@mkdir -p $(BUILD_DIR)
->$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(BUILD_DIR) $(SRC_DIR)/$(COVERLETTER).tex
+
+$(BUILD_DIR)/%.pdf: %.tex
+>@mkdir -p $(dir $@)
+>$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(dir $@) $<
 
 clean:
 >@echo "Cleaning build output..."
