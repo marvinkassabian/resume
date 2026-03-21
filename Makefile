@@ -8,7 +8,7 @@ CLEAN_AUX ?= 0
 SRC_DIR = src
 BUILD_DIR = build
 LATEXMK = latexmk
-LATEXMK_FLAGS = -lualatex -interaction=nonstopmode
+LATEXMK_FLAGS = -cd -lualatex -interaction=nonstopmode
 
 RESUME = kassabian_marvin_resume
 CV = kassabian_marvin_cv
@@ -41,7 +41,7 @@ build-coverletter: $(COVERLETTER_PDF)
 
 $(BUILD_DIR)/%.pdf: %.tex
 >@mkdir -p $(dir $@)
->$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(dir $@) $<
+>$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(abspath $(dir $@)) $<
 
 clean:
 >@echo "Cleaning build output..."

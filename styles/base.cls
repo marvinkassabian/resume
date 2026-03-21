@@ -177,4 +177,4 @@
         {linkedin.com/in/marvinkassabian}
 }
 
-\newcommand{\populatedtitle}{\populatedtitlechapin}
+\newcommand{\populatedtitle}{\populatedtitlelafayette}
