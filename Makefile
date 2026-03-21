@@ -1,9 +1,9 @@
 # Resume/CV/cover letter Makefile
 
 .RECIPEPREFIX := >
-.PHONY: all build build-resume build-cv build-coverletter clean clean-aux help
-
-CLEAN_AUX ?= 0
+.PHONY: all build build-resume build-cv build-coverletter \
+clean mostlyclean distclean maintainer-clean clean-aux \
+build-mostlyclean build-distclean help
 
 SRC_DIR = src
 BUILD_DIR = build
@@ -28,7 +28,6 @@ build: $(PDF_TARGETS)
 >@echo "Built: $(RESUME_PDF)"
 >@echo "Built: $(CV_PDF)"
 >@echo "Built: $(COVERLETTER_PDF)"
->@if [ "$(CLEAN_AUX)" = "1" ]; then $(MAKE) clean-aux; fi
 
 build-resume: $(RESUME_PDF)
 >@echo "Building resume..."
@@ -39,24 +38,37 @@ build-cv: $(CV_PDF)
 build-coverletter: $(COVERLETTER_PDF)
 >@echo "Building cover letter..."
 
+# Convenience targets that match common workflows.
+build-mostlyclean: build mostlyclean
+
+build-distclean: build distclean
+
 $(BUILD_DIR)/%.pdf: %.tex
 >@mkdir -p $(dir $@)
 >$(LATEXMK) $(LATEXMK_FLAGS) -output-directory=$(abspath $(dir $@)) $<
+
+# GNU-style cleaning targets.
+mostlyclean:
+>@echo "Cleaning auxiliary files..."
+>@find $(BUILD_DIR) -type f ! -name "*.pdf" -delete 2>/dev/null || true
 
 clean:
 >@echo "Cleaning build output..."
 >@rm -rf $(BUILD_DIR)
 
-clean-aux:
->@echo "Cleaning auxiliary files..."
->@find $(BUILD_DIR) -type f ! -name "*.pdf" -delete 2>/dev/null || true
+distclean: clean
+
+maintainer-clean: distclean
 
 help:
 >@echo "resume/CV/cover letter"
->@echo "  make build             Build resume, CV, and cover letter"
->@echo "  make build-resume      Build resume only"
->@echo "  make build-cv          Build CV only"
->@echo "  make build-coverletter Build cover letter only"
->@echo "  make clean             Remove build directory"
->@echo "  make clean-aux         Remove auxiliary files, keep PDFs"
->@echo "  CLEAN_AUX=1            After build, remove auxiliary files (e.g. make build CLEAN_AUX=1)"
+>@echo "  make build               Build resume, CV, and cover letter"
+>@echo "  make build-resume        Build resume only"
+>@echo "  make build-cv            Build CV only"
+>@echo "  make build-coverletter   Build cover letter only"
+>@echo "  make mostlyclean         Remove auxiliary files, keep PDFs"
+>@echo "  make clean               Remove build directory"
+>@echo "  make distclean           Alias of clean"
+>@echo "  make maintainer-clean    Alias of distclean"
+>@echo "  make build-mostlyclean   Build everything, then remove aux files"
+>@echo "  make build-distclean     Build everything, then remove build directory"
