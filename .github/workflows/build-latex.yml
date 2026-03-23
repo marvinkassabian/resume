@@ -33,5 +33,6 @@ jobs:
       build_command: make build
       artifact_path: build/
       artifact_name: kassabian-resume-pdfs
+      artifact_retention_days: 3
       strict_build: ${{ github.event_name == 'push' || inputs.strict_sections }}
       clean_command: make clean-aux
