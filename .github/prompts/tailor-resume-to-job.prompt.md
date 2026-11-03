@@ -1,5 +1,5 @@
 ---
-description: "Prepare a job-specific branch, score the current resume against a job posting, improve it using facts from the CV, and report remaining gaps"
+description: "Prepare a job-specific branch, score the current resume against a job posting, improve it using facts from the career master, and report remaining gaps"
 name: "tailor-resume-to-job"
 argument-hint: "Optional: target role, company, or emphasis areas"
 tools: [read, edit, execute, agent]
@@ -9,7 +9,7 @@ Tailor the resume to a specific job posting.
 
 Primary files:
 - Resume target: `src/kassabian_marvin_resume.tex`
-- Source pool: `src/kassabian_marvin_cv.tex`
+- Source pool: `src/kassabian_marvin_career_master.tex`
 
 ## Role split
 
@@ -25,7 +25,7 @@ Job posting input sources (use in this order):
 Primary goals:
 - Ensure resume tailoring happens on a job-specific git branch rather than `main` or an unrelated branch.
 - Score the current resume against the job before editing.
-- Improve the resume using only information already present in the CV.
+- Improve the resume using only information already present in the career master.
 - Maximize the match for the target role without inventing experience.
 - Report what is still missing after the update.
 
@@ -55,8 +55,8 @@ Workflow:
 
 3. Read the current materials.
 - Read the full current resume from `src/kassabian_marvin_resume.tex`.
-- Read the full CV from `src/kassabian_marvin_cv.tex`.
-- Treat the CV as the authoritative pool of facts you may use to strengthen the resume.
+- Read the full career master from `src/kassabian_marvin_career_master.tex`.
+- Treat the career master as the authoritative pool of facts you may use to strengthen the resume.
 
 4. Score the current resume before editing (sub-agent).
 
@@ -83,13 +83,13 @@ Workflow:
 - Edit `src/kassabian_marvin_resume.tex` in place.
 - Preserve valid LaTeX syntax, the existing document structure, and the overall concise resume format.
 - Prefer targeted improvements to summary, skills, and bullets over expanding the resume unnecessarily.
-- Pull supporting details from `src/kassabian_marvin_cv.tex` when they improve alignment with the job posting.
+- Pull supporting details from `src/kassabian_marvin_career_master.tex` when they improve alignment with the job posting.
 - Reorder, tighten, or replace bullets when needed to better match the role.
 - Keep the resume truthful and concise.
 
 6. Constrain the edits.
 - Do not invent skills, tools, responsibilities, metrics, employers, dates, or achievements.
-- Do not add facts that are absent from both the current resume and the CV.
+- Do not add facts that are absent from both the current resume and the career master.
 - Do not degrade readability by stuffing keywords.
 - Do not rewrite the CV; only update the resume.
 - Keep the resume appropriate for a one-page to short resume style unless the existing file clearly uses a different standard.
@@ -117,7 +117,7 @@ Workflow:
 
 8. Report remaining gaps.
 - List the most important missing qualifications, experiences, or signals that still prevent a higher score.
-- Separate true missing experience from information that may exist in the CV but should not be added because it would weaken the resume or be too tangential.
+- Separate true missing experience from information that may exist in the career master but should not be added because it would weaken the resume or be too tangential.
 
 Output format:
 - Always update `src/kassabian_marvin_resume.tex` in place.
@@ -132,9 +132,9 @@ Output format:
 
 Rules:
 - Optimize for evidence-backed alignment, not generic phrasing.
-- Prefer exact job-relevant terminology when it is already supported by the CV.
+- Prefer exact job-relevant terminology when it is already supported by the career master.
 - Preserve ASCII punctuation unless LaTeX content requires otherwise.
-- If the job posting emphasizes a technology or responsibility that is not supported by the CV, explicitly leave it out and mention it as a remaining gap.
+- If the job posting emphasizes a technology or responsibility that is not supported by the career master, explicitly leave it out and mention it as a remaining gap.
 - Do not continue editing on `main` or an unrelated branch when a job-specific branch should be created first.
 
 Additional context:

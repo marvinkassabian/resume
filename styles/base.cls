@@ -48,7 +48,7 @@
 
 % Common commands
 \newcommand{\seperator}{
-    \textbullet
+    \textbullet\hspace{0.25em}
 }
 
 \newcommand{\titleseperator}{
